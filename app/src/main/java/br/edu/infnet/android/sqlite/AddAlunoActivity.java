@@ -42,7 +42,7 @@ public class AddAlunoActivity extends Activity  {
         });
     }
 
-    
+
     public void chama(View v) {
         /*se botao for de adicionar*/
         switch (v.getId()) {

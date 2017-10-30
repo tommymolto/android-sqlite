@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static final String DB_NAME = "infnet.db";
 
     // Versao do banco
-    static final int DB_VERSION = 2;
+    static final int DB_VERSION = 1;
 
     // Query de criacao de tabela
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
@@ -36,13 +36,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /*criacao de table */
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(CREATE_TABLE);
     }
 
     /* caso tenhamos upgrade, deleta a tabela e recria*/
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+        // db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        switch (newVersion){
+            case 1:
+                onCreate(db);
+            case 3:
+                db.execSQL("ALTER TABLE "+ TABLE_NAME + "  ADD COLUMN text3 TEXT");
+                break;
+            case 4:
+                db.execSQL("ALTER TABLE "+ TABLE_NAME + "  ADD COLUMN text4 TEXT");
+                break;
+            case 5:
+                db.execSQL("ALTER TABLE "+ TABLE_NAME + "  ADD COLUMN text5 TEXT");
+                break;
+        }
+
     }
 }
