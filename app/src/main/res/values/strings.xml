@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SQLite</string>
+    <string name="enter_name">Nome</string>
+    <string name="add_record">Adicionar Aluno</string>
+    <string name="btn_update">Editar</string>
+    <string name="btn_delete">Deletar</string>
+    <string name="empty_list_text">Sem alunos cadastrados</string>
+    <string name="enter_desc">Sobrenome</string>
+    <string name="enter_title">Nome</string>
+</resources>
